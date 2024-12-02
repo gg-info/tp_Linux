@@ -110,7 +110,7 @@ en mode -- INSERT --
 
 — Tapez :wq puis sur entrée pour sauvegarder et quitter vim.
 
-<p align="center"> <img src="Capture 1.3.3 .PNG" width="80%" height="auto" /> </p>
+<p align="center"> <img src="Capture 1.3.3.PNG" width="80%" height="auto" /> </p>
 Rebootez une nouvelle fois, et là normalement vous allez avoir une adresse IP
 correcte. Vérifiez avec ifconfig.
 
