@@ -78,6 +78,7 @@ Rebootez la carte (proprement !), puis, une fois loggé :
 Vérifiez que vous avez bien 32GB de disponible sur la carte SD.
 <p align="center"> <img src="Capture 1.3.2 .PNG" width="80%" height="auto" /> </p>
 <p align="center"> <img src="Capture 1.3.2 a.PNG" width="80%" height="auto" /> </p>
+
 ### 1.3.3 Configuration réseau
 
 — Branchez la carte VEEK sur le switch via un câble réseau,
@@ -108,6 +109,7 @@ en mode -- INSERT --
 — Quand c’est terminé, tapez sur la touche Echap pour revenir en mode command
 
 — Tapez :wq puis sur entrée pour sauvegarder et quitter vim.
+
 <p align="center"> <img src="Capture 1.3.3 .PNG" width="80%" height="auto" /> </p>
 Rebootez une nouvelle fois, et là normalement vous allez avoir une adresse IP
 correcte. Vérifiez avec ifconfig.
