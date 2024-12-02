@@ -1,3 +1,4 @@
+<p align="left"> <img src="logo ENSEA.png" width="15%" height="auto" /> </p>
 
 # tp_Linux
 
@@ -75,14 +76,15 @@ Rebootez la carte (proprement !), puis, une fois loggé :
 ./resize2fs_once
 ```
 Vérifiez que vous avez bien 32GB de disponible sur la carte SD.
-
+<p align="center"> <img src="Capture 1.3.2 .PNG" width="80%" height="auto" /> </p>
+<p align="center"> <img src="Capture 1.3.2 a.PNG" width="80%" height="auto" /> </p>
 ### 1.3.3 Configuration réseau
 
 — Branchez la carte VEEK sur le switch via un câble réseau,
 
 — À l’aide de la commande ifconfig, vérifiez que la carte dispose d’une
 adresse IP,
-
+<p align="center"> <img src="Capture 1.3.3 a.PNG" width="80%" height="auto" /> </p>
 — Éditer le fichier /etc/network/interfaces de la manière suivante :
 ```
 # interfaces(5) file used by ifup(8) and ifdown(8)
@@ -106,7 +108,7 @@ en mode -- INSERT --
 — Quand c’est terminé, tapez sur la touche Echap pour revenir en mode command
 
 — Tapez :wq puis sur entrée pour sauvegarder et quitter vim.
-
+<p align="center"> <img src="Capture 1.3.3 .PNG" width="80%" height="auto" /> </p>
 Rebootez une nouvelle fois, et là normalement vous allez avoir une adresse IP
 correcte. Vérifiez avec ifconfig.
 
@@ -118,12 +120,12 @@ ping <adresse_ip>
 présente :
 
 PermitEmptyPasswords yes
-
+<p align="center"> <img src="Capture 1.3.3 b.PNG" width="80%" height="auto" /> </p>
 — Vous devriez pouvoir vous logger en ssh sur la carte VEEK, avec Putty ou
 par le terminal :
 
 ssh root@<IP_VEEK>
-
+<p align="center"> <img src="Capture 1.3.3 c.PNG" width="80%" height="auto" /> </p>
 Une fois connecté en ssh, vous pouvez fermer la liaison série. Sur minicom
 ça se fait avec la combinaison suivante :
 
@@ -138,7 +140,8 @@ Explorez un peu votre environnement, par exemple :
 
 — Dans /proc : cpuinfo, ioports, iomem. Utilisez les commandes cat, less
 ou more pour voir le contenu des fichiers
-
+<p align="center"> <img src="Capture 1.4.1 .PNG" width="80%" height="auto" /> </p>
+<p align="center"> <img src="Capture 1.3.3 a.PNG" width="80%" height="auto" /> </p>
 — Le répertoire /sys/class contient des entrées nouvelles (par raport à un
 PC classique), saurez vous les reconnaître ? En particulier, explorez les répertoires suivants :
 
