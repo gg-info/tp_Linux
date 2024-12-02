@@ -106,10 +106,102 @@ en mode -- INSERT --
 — Quand c’est terminé, tapez sur la touche Echap pour revenir en mode command
 
 — Tapez :wq puis sur entrée pour sauvegarder et quitter vim.
+
 Rebootez une nouvelle fois, et là normalement vous allez avoir une adresse IP
 correcte. Vérifiez avec ifconfig.
 
 — Si tout est correct, vous devez pouvoir pinger avec le PC dans les 2 sens
+
 ping <adresse_ip>
 
+— Vérifiez que dans le fichier /etc/ssh/sshd_config, la ligne suivante est
+présente :
 
+PermitEmptyPasswords yes
+
+— Vous devriez pouvoir vous logger en ssh sur la carte VEEK, avec Putty ou
+par le terminal :
+
+ssh root@<IP_VEEK>
+
+Une fois connecté en ssh, vous pouvez fermer la liaison série. Sur minicom
+ça se fait avec la combinaison suivante :
+
+Ctrl+A puis Q
+
+### 1.4 Découverte de la cible
+
+### 1.4.1 Exploration des dossiers /sys/class et /proc
+Explorez un peu votre environnement, par exemple :
+
+— Répertoires présent sous la racine
+
+— Dans /proc : cpuinfo, ioports, iomem. Utilisez les commandes cat, less
+ou more pour voir le contenu des fichiers
+
+— Le répertoire /sys/class contient des entrées nouvelles (par raport à un
+PC classique), saurez vous les reconnaître ? En particulier, explorez les répertoires suivants :
+
+— /sys/class/leds/fpga_ledX/
+
+— /proc/ioport
+
+— /proc/iomem
+
+— /proc/device-tree/sopc@0 à comparer avec le fichier iomem.
+
+### 1.4.2 Compilation croisée
+
+Il existe deux méthodes pour compiler un programme sur le SoC :
+
+— Directement sur les SoC à l’aide du gcc qui y est installé (gcc -v)
+
+— Sur le PC (beaucoup plus puissant), en utilisant un chaine de compilation
+croisée sous linux (apt install gcc-arm-linux-gnueabihf sous Ubuntu).
+
+Vous allez utiliser la deuxième solution. Pour cela, une VM contenant un linux
+déjà configuré va vous permettre de faire la compilation directement sur le PC :
+
+— Lancez VirtualBox et importez la VM suivante VM-SOC-2019.ova
+
+— Sur les PC Windows de l’école, modifiez le répertoire "Dossier de base" (Machine Base Folder) dans
+D:\SOC-2021\VirtualBox VMs pour éviter d’exploser vos quotas ENSEA.
+
+— Lancez l’importation.
+
+— Avant de lancer la VM, modifiez le dossier partagé en le faisant pointer sur
+un dossier dans "Mes Documents" (ou ailleurs).
+
+— Lancez la VM, loggez vous (login : ensea, password : ensea).
+Dans la VM, le répertoire src dans le home de ensea, est le dossier partagé.
+
+Tout ce que vous y placer est visible depuis la VM et depuis le système Hôte.
+### 1.4.3 Hello world !
+
+Réalisez un programme "Hello World !", compilez-le et testez-le sur la carte
+SoC.
+
+— Pour compiler sur la VM, utilisez le cross-compilateur :
+arm-linux-gnueabihf-gcc hello.c -o hello.o
+
+Vous pouvez vérifier le type de vos exécutables avec la commande file. Essayez de l’exécuter dans la VM. Que se passe-t-il ?
+Comme la carte SOC est sur le réseau, vous pouvez copier l’exécutable directement sur la cible :
+
+scp chemin_sur_VM root@IP_DE_LA_CARTE_SOC:chemin_sur_SOC
+
+Tester sur la carte.
+### 1.4.4 Accès au matériel
+
+Un certain nombre de drivers sont fournis. Comme tous les drivers sous Linux,
+ils sont accessible sous forme de fichiers. Par exemple pour allumer l’une des LED
+rouge de la carte, il suffit d’écrire un ’1’ dans le bon fichier.
+```
+echo "1" > /sys/class/leds/fpga_led1/brightness
+```
+Tester d’allumer et d’éteindre d’autres LED.
+
+### 1.4.5 Chenillard (Et oui, encore !)
+
+Plutôt que de passer par la commande echo, on peut écrire un programme C
+qui va ouvrir et écrire dans ces fichiers. Écrire un programme en C qui réalise un
+chenillard.
