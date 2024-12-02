@@ -204,7 +204,7 @@ rouge de la carte, il suffit d’écrire un ’1’ dans le bon fichier.
 echo "1" > /sys/class/leds/fpga_led1/brightness
 ```
 Tester d’allumer et d’éteindre d’autres LED.
-<p align="center"> <img src="photo_chenillard.jpg" width="80%" height="auto" /> </p>
+<p align="center"> <img src="photo_chenillard.jpg" width="60%" height="auto" /> </p>
 
 ### 1.4.5 Chenillard (Et oui, encore !)
 
