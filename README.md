@@ -143,7 +143,7 @@ Explorez un peu votre environnement, par exemple :
 — Dans /proc : cpuinfo, ioports, iomem. Utilisez les commandes cat, less
 ou more pour voir le contenu des fichiers
 <p align="center"> <img src="Capture 1.4.1 .PNG" width="80%" height="auto" /> </p>
-<p align="center"> <img src="Capture 1.3.3 a.PNG" width="80%" height="auto" /> </p>
+
 — Le répertoire /sys/class contient des entrées nouvelles (par raport à un
 PC classique), saurez vous les reconnaître ? En particulier, explorez les répertoires suivants :
 
@@ -154,7 +154,7 @@ PC classique), saurez vous les reconnaître ? En particulier, explorez les répe
 — /proc/iomem
 
 — /proc/device-tree/sopc@0 à comparer avec le fichier iomem.
-
+<p align="center"> <img src="Capture 1.3.3 a.PNG" width="80%" height="auto" /> </p>
 ### 1.4.2 Compilation croisée
 
 Il existe deux méthodes pour compiler un programme sur le SoC :
@@ -204,6 +204,7 @@ rouge de la carte, il suffit d’écrire un ’1’ dans le bon fichier.
 echo "1" > /sys/class/leds/fpga_led1/brightness
 ```
 Tester d’allumer et d’éteindre d’autres LED.
+<p align="center"> <img src="photo_chenillard.jpg" width="80%" height="auto" /> </p>
 
 ### 1.4.5 Chenillard (Et oui, encore !)
 
