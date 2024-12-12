@@ -213,3 +213,24 @@ Tester d’allumer et d’éteindre d’autres LED.
 Plutôt que de passer par la commande echo, on peut écrire un programme C
 qui va ouvrir et écrire dans ces fichiers. Écrire un programme en C qui réalise un
 chenillard.
+## 2 Modules kernel (TP2)
+
+### 2.0 Reprise du TP1
+
+Assurez vous de pouvoir communiquer avec la carte VEEK en ssh ou via le port
+série. Vous devez pour cela reprendre la configuration du réseau faite au TP1.
+
+### 2.1 Accès aux registres
+
+Avant de travailler avec les modules, vous allez créer un programme qui accède directement aux registres depuis l’espace utilisateur.
+À cause de la virtualisation de la mémoire, il n’est pas possible d’écrire facilement dans un registre comme nous en avons l’habitude. Il faut en effet remapper
+la mémoire pour demander à l’OS de nous fournir une adresse virtuelle.
+Pour cela, on utilisera la fonction mmap()
+
+Le registre du GPIO connecté aux LED est disponible à l’adresse suivante :
+
+— 0xFF203000
+
+Cette méthode permet de prototyper rapidement, mais pose quelques problèmes et limites. Quels sont-ils ?
+
+### 2.2 Compilation de module noyau sur la VM
