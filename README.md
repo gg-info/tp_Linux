@@ -155,6 +155,7 @@ PC classique), saurez vous les reconnaître ? En particulier, explorez les répe
 
 — /proc/device-tree/sopc@0 à comparer avec le fichier iomem.
 <p align="center"> <img src="Capture 1.3.3 a.PNG" width="80%" height="auto" /> </p>
+
 ### 1.4.2 Compilation croisée
 
 Il existe deux méthodes pour compiler un programme sur le SoC :
@@ -181,6 +182,7 @@ un dossier dans "Mes Documents" (ou ailleurs).
 Dans la VM, le répertoire src dans le home de ensea, est le dossier partagé.
 
 Tout ce que vous y placer est visible depuis la VM et depuis le système Hôte.
+
 ### 1.4.3 Hello world !
 
 Réalisez un programme "Hello World !", compilez-le et testez-le sur la carte
