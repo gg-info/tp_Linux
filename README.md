@@ -142,7 +142,7 @@ Explorez un peu votre environnement, par exemple :
 
 — Dans /proc : cpuinfo, ioports, iomem. Utilisez les commandes cat, less
 ou more pour voir le contenu des fichiers
-<p align="center"> <img src="Capture 1.4.1 .PNG" width="80%" height="auto" /> </p>
+<p align="center"> <img src="Capture 1.4.1.PNG" width="80%" height="auto" /> </p>
 
 — Le répertoire /sys/class contient des entrées nouvelles (par raport à un
 PC classique), saurez vous les reconnaître ? En particulier, explorez les répertoires suivants :
