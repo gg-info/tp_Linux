@@ -234,3 +234,39 @@ Le registre du GPIO connecté aux LED est disponible à l’adresse suivante :
 Cette méthode permet de prototyper rapidement, mais pose quelques problèmes et limites. Quels sont-ils ?
 
 ### 2.2 Compilation de module noyau sur la VM
+
+Pour ce TP, vous allez développer vos propres modules noyau. Vous allez avoir besoin des sources du noyau cible (en fait en théorie il faut seulement les includes).
+Il nous faut les sources exactes du noyau sur lequel le module va être chargé.
+Pour compiler des modules noyau dans la VM, vous aurez besoin des paquets
+suivant :
+```
+sudo apt install linux-headers-amd64
+sudo apt install bc
+```
+
+À partir du Makefile et du fichier source hello.c disponibles sur moodle,
+compilez votre premier module.
+Utilisez modinfo, lsmod, insmod et rmmod pour tester votre module (à utiliser
+avec sudo) : chargez le et vérifiez que le module fonctionne bien (sudo dmesg).
+Pour la suite, tester les programmes suivants (voir cours)
+— utilisation de paramètres au chargement du module
+— création d’un entrée dans /proc
+— utilisation d’un timer
+
+<p align="center"> <img src="2.2 Compilation de module noyau sur la VM.PNG" width="60%" height="auto" /> </p>
+
+### 2.3 CrossCompilation de modules noyau
+
+À cause de la puissance limitée du processeur de la carte cible, la compilation,
+en particulier la compilation de modules noyau, est relativement longue. Nous
+allons donc, une fois encore, cross-compiler les modules noyau pour la carte SoC,
+à l’aide de la VM.
+
+### 2.3.0 Récupération du Noyau Terasic (c’est déjà fait dans la VM !)
+
+Les commandes suivantes permettent de récupérer les sources du noyau actuellement en fonctionnement sur la carte VEEK :
+```
+git clone https://github.com/terasic/linux-socfpga/
+git checkout 6b20a2929d54
+git config core.abbrev 7
+```
